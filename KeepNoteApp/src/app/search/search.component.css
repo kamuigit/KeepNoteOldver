@@ -1,0 +1,11 @@
+#search {
+  width: fit-content;
+}
+
+mat-form-field {
+  height: fit-content;
+  width: 400px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}

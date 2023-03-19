@@ -1,0 +1,29 @@
+<div class="container-fluid  mt-1 " id="cont">
+    <div class="row ms-4">
+        <div class="col m-1" *ngFor="let a of sample;">
+            <mat-card class="example-card" [formGroup]="editedNote">
+                <mat-card-header>
+                    <mat-card-title>
+                        <p *ngIf="edit|| hoverData.id != a.id">{{a.title}}</p>
+                        <input type="text" matInput formControlName="title" value="{{a.title}}"
+                            *ngIf="!edit && hoverData.id == a.id ">
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p *ngIf="edit || hoverData.id != a.id">{{a.content}}</p>
+                    <textarea matInput value=" {{a.content}}" *ngIf="!edit && hoverData.id == a.id" cols="30" rows="5"
+                        formControlName="content">
+                    </textarea>
+                </mat-card-content>
+                <mat-card-actions class="d-flex justify-content-between">
+                    <mat-icon color="primary">bookmark</mat-icon>
+                    <mat-icon color="primary" *ngIf="edit" (click)="hoverCard(a); edit=!edit">edit</mat-icon>
+                    <mat-icon color="primary" type="submit" *ngIf="!edit && hoverData.id == a.id"
+                        (click)="edit=!edit; hoverData=false; saveEdit(editedNote) ">save</mat-icon>
+                    <mat-icon color="primary" (click)="deleten(a.id)">delete</mat-icon>
+                    <mat-icon color="accent">notifications</mat-icon>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

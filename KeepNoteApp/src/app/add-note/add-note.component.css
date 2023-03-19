@@ -1,0 +1,14 @@
+#box {
+  width: 600px;
+}
+span {
+  color: crimson;
+}
+mat-form-field {
+  width: 550px;
+  height: fit-content;
+  font-size: small;
+}
+mat-label {
+  font-size: small;
+}
